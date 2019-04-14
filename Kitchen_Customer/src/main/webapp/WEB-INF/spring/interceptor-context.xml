@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<mvc:interceptors>
+
+	<mvc:interceptor>
+		<mvc:mapping path="/order/orderinfo"/>
+		<bean class="org.badgers.customer.interceptor.OrderInfoInterceptor"></bean>
+	</mvc:interceptor>
+	
+	<mvc:interceptor>
+		<mvc:mapping path="/order/payment"/>
+		<bean class="org.badgers.customer.interceptor.PaymentInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/order/payready"/>
+		<bean class="org.badgers.customer.interceptor.PayReadyInterceptor"></bean>
+	</mvc:interceptor>
+
+	<mvc:interceptor>
+		<mvc:mapping path="/member/login"/>
+		<bean class="org.badgers.customer.interceptor.MemberInterceptor"></bean>
+	</mvc:interceptor>
+	
+	<mvc:interceptor>
+		<mvc:mapping path="/main/kakaologin"/>
+		<bean class="org.badgers.customer.interceptor.MemberInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+	
+		<mvc:mapping path="/member/logout"/>
+		<bean class="org.badgers.customer.interceptor.MemberInterceptor"></bean>
+	</mvc:interceptor>
+	
+	<mvc:interceptor>
+		<mvc:mapping path="/kitchen/*/main"/>
+		<bean class="org.badgers.customer.interceptor.AuthCheckInterceptor"></bean>
+	</mvc:interceptor>
+	
+
+</mvc:interceptors>
+</beans>
